@@ -1,6 +1,6 @@
 import { getConnection } from "./../databases/database";
 import config from "./../config";
-import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"; 
 
 const getArri= async (req,res)=>{
     try {
