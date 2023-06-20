@@ -1,20 +1,25 @@
 import { getConnection } from "./../databases/database";
+import { cargaDatosCsv } from "../data/arri.connect.api.mjs";
 import config from "./../config";
 import jwt from "jsonwebtoken";
 
 const getArri= async (req,res)=>{
     try {
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         const connection = await getConnection();
         const result = await connection.query("SELECT id,correo,contraseña FROM usuarios");
         res.status(200).json(result)
     } catch (error) {
-        res.status(500);
+        res.status(500).send(error.message);
     }
 
 };
 
 const getUsuario= async (req,res)=>{
     try {
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         const {correo,contraseña}=req.body;
         if(correo==undefined || contraseña==undefined){
             res.status(400).json({message:"No se realizo la busqueda"})
@@ -36,13 +41,14 @@ const getUsuario= async (req,res)=>{
         }
         
     } catch (error) {
-        res.status(500);
-        res.send(error.message);
+        res.status(500).send(error.message);
     }
 };
 
 const addUsuario = async (req,res) =>{
     try {
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         const {nombre,correo,contraseña}=req.body;
         if(nombre==undefined || correo==undefined || contraseña==undefined){
             res.status(400).json({message:"No se realizo la insersion"})
@@ -66,29 +72,29 @@ const addUsuario = async (req,res) =>{
             }
         }
     } catch (error) {
-        res.status(500);
-        res.send(error.message);
+        res.status(500).send(error.message);
     }
 };
 
-const verifyToken = async (req,res,next) => {
+const addDatos = async (req,res) =>{
     try {
-        const token = req.headers["x-access-token"];
-
-        if(!token) return res.status(403).json({message:"No envió el token"})
-        const decoded = jwt.verify(token,config.secretkey)
-
-        const reviso = await connection.query("SELECT id FROM usuarios WHERE id = $1",[decoded.id]);
-        if(!reviso) return res.status(404).json({message:"Usuario no encontrado"});
-
-        next();
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        const {institucion}=req.body;
+        if(institucion==undefined){
+            res.status(400).json({message:"Ingrese una institucion"})
+        }else{
+            cargaDatosCsv(institucion);
+            res.status(200).json({message:"sikas"})
+        }
     } catch (error) {
-       return res.status(404).json({message:"token no autorizado"}); 
-    }  
-}
+        res.status(500).send(error.message);
+    }
+};
 
 export const methods = {
     getArri,
     addUsuario,
-    getUsuario
+    getUsuario,
+    addDatos
 }
