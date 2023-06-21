@@ -7,6 +7,7 @@ const app = Router();
 app.get("/",arriController.getArri);
 app.post("/register",arriController.addUsuario);
 app.post("/login",arriController.getUsuario);
+app.get("/instituciones",verifyToken,arriController.getInstituciones);
 app.post("/load",verifyToken,arriController.addDatos);
 
 export default app;

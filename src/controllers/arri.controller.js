@@ -1,5 +1,5 @@
 import { getConnection } from "./../databases/database";
-import { cargaDatosCsv } from "../data/arri.connect.api.mjs";
+import { cargaDatosCsv,mostrarInstituciones } from "../data/arri.connect.api.js";
 import config from "./../config";
 import jwt from "jsonwebtoken"; 
 
@@ -85,8 +85,21 @@ const addDatos = async (req,res) =>{
             res.status(400).json({message:"Ingrese una institucion"})
         }else{
             cargaDatosCsv(institucion);
-            res.status(200).json({message:"sikas"})
+            res.status(200).json({message:"Se ha creado el CSV"})
         }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+const getInstituciones = async (req,res) =>{
+    try {
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        
+        const json = await mostrarInstituciones();
+        res.status(200).json(json)
+
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -96,5 +109,6 @@ export const methods = {
     getArri,
     addUsuario,
     getUsuario,
-    addDatos
+    addDatos,
+    getInstituciones
 }
