@@ -26,7 +26,7 @@ app.all('*', function(req, res, next) {
 });
 
 // Settings
-app.set("port",3000);
+app.set("port",4000);
 
 // Middlewares
 app.use(morgan("dev"));

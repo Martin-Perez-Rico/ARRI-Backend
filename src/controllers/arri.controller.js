@@ -25,7 +25,7 @@ const getUsuario= async (req,res)=>{
             res.status(400).json({message:"No se realizo la busqueda"})
         }else{
             const connection = await getConnection();
-            const result = await connection.query("SELECT id,contraseña FROM usuarios WHERE correo = $1",[correo]);
+            const result = await connection.query("SELECT id,nombre,contraseña FROM usuarios WHERE correo = $1",[correo]);
             if(result.rowCount!=0){
                 if(result.rows[0]['contraseña']!=contraseña){
                     res.json({message:"Acceso no Permitido"});  
@@ -33,7 +33,7 @@ const getUsuario= async (req,res)=>{
                     const token = jwt.sign({id:result.rows[0]['id']},config.secretkey,{
                         expiresIn: 43200 //12 horas
                     });
-                    res.status(200).json({token})
+                    res.status(200).json({token,nombre:result.rows[0]['nombre']})
                 }
             }else{
                 res.json({message:"Usuario no encontrado"});  
@@ -65,7 +65,7 @@ const addUsuario = async (req,res) =>{
                     const token = jwt.sign({id:idToken.rows[0]['id']},config.secretkey,{
                         expiresIn: 43200 //12 horas
                     });
-                    res.status(200).json({token})
+                    res.status(200).json({token,nombre:result.rows[0]['nombre']})
                 }
             }else{
                 res.json({message:"Correo ya existente"});  
@@ -96,10 +96,9 @@ const getInstituciones = async (req,res) =>{
     try {
         // Habilitar CORS
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        
-        const json = await mostrarInstituciones();
-        res.status(200).json(json)
-
+        const connection = await getConnection();
+        const reviso = await connection.query("SELECT nombre FROM instituciones");
+        res.status(200).json(reviso.rows)
     } catch (error) {
         res.status(500).send(error.message);
     }

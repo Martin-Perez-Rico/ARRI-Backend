@@ -29,10 +29,4 @@ const cargaDatosCsv= async (institucion)=>{
     }
 }
 
-const mostrarInstituciones = async()=>{
-    const url = "https://www.datos.gov.co/resource/kgxf-xxbe.json?$query=SELECT DISTINCT(cole_nombre_establecimiento)";
-    const response = await axios.get(url);
-    return response.data;
-}
-
-export { cargaDatosCsv, mostrarInstituciones };
+export { cargaDatosCsv};
