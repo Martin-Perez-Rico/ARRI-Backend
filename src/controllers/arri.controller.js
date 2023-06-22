@@ -61,11 +61,11 @@ const addUsuario = async (req,res) =>{
                 if(result.rowCount==0){
                     res.json({message:"No se ha podido registrar el usuario"});  
                 }else{
-                    const idToken = await connection.query("SELECT id FROM usuarios WHERE correo = $1",[correo]);
+                    const idToken = await connection.query("SELECT id,nombre FROM usuarios WHERE correo = $1",[correo]);
                     const token = jwt.sign({id:idToken.rows[0]['id']},config.secretkey,{
                         expiresIn: 43200 //12 horas
                     });
-                    res.status(200).json({token,nombre:result.rows[0]['nombre']})
+                    res.status(200).json({token,nombre:idToken.rows[0]['nombre']})
                 }
             }else{
                 res.json({message:"Correo ya existente"});  
