@@ -24,6 +24,7 @@ const cargaDatosCsv= async (institucion)=>{
     try {
         const puntero = await getIns(institucion); 
         await puntero.writeRecords(parsed_data);
+        return data;
     } catch (error) {
         console.log(error);
     }

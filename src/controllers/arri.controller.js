@@ -77,15 +77,36 @@ const addUsuario = async (req,res) =>{
 };
 
 const addDatos = async (req,res) =>{
+    const currentDate = new Date();
     try {
         // Habilitar CORS
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        const {institucion}=req.body;
+        const {institucion} = req.body;
+        const token = req.headers["x-access-token"];
+        const decoded = jwt.verify(token,config.secretkey)
         if(institucion==undefined){
             res.status(400).json({message:"Ingrese una institucion"})
         }else{
-            cargaDatosCsv(institucion);
-            res.status(200).json({message:"Se ha creado el CSV"})
+            const datos = ["./csv/"+institucion+".csv",currentDate.getFullYear(),decoded.id]
+            const connection = await getConnection();
+            const reviso = await connection.query("SELECT año_creacion FROM datos_institucion WHERE ubicacion_csv = $1 AND id_usuario = $2",[datos[0],datos[2]]);
+            if(reviso.rowCount==0){
+                const result = await connection.query("INSERT INTO datos_institucion (ubicacion_csv,año_creacion,id_usuario) VALUES ($1,$2,$3)",datos);
+                if(result.rowCount==0){
+                    res.json({message:"No se ha podido crear el CSV"});  
+                }else{
+                    const info = await cargaDatosCsv(institucion);
+                    res.status(200).json(info)
+                }
+            }else{
+                const result = await connection.query("UPDATE datos_institucion SET año_creacion = $1",[datos[1]]);
+                if(result.rowCount==0){
+                    res.json({message:"No se ha actualizado el CSV"});  
+                }else{
+                    const info = await cargaDatosCsv(institucion);
+                    res.status(200).json(info)
+                }
+            }
         }
     } catch (error) {
         res.status(500).send(error.message);
@@ -97,8 +118,21 @@ const getInstituciones = async (req,res) =>{
         // Habilitar CORS
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         const connection = await getConnection();
-        const reviso = await connection.query("SELECT nombre FROM instituciones");
-        res.status(200).json(reviso.rows)
+        const result = await connection.query("SELECT nombre FROM instituciones");
+        res.status(200).json(result.rows)
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
+const getCSV = async (req,res) =>{
+    try {
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        const token = req.headers["x-access-token"];
+        const decoded = jwt.verify(token,config.secretkey)
+        const connection = await getConnection();
+        const result = await connection.query("SELECT ubicacion_csv FROM datos_institucion WHERE id_usuario = $1",[decoded.id]);
+        res.status(200).json(result.rows)
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -109,5 +143,6 @@ export const methods = {
     addUsuario,
     getUsuario,
     addDatos,
-    getInstituciones
+    getInstituciones,
+    getCSV
 }

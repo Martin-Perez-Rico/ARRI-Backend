@@ -9,5 +9,6 @@ app.post("/register",arriController.addUsuario);
 app.post("/login",arriController.getUsuario);
 app.get("/instituciones",verifyToken,arriController.getInstituciones);
 app.post("/load",verifyToken,arriController.addDatos);
+app.post("/csv",verifyToken,arriController.getCSV);
 
 export default app;
