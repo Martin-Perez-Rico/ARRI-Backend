@@ -125,7 +125,7 @@ const getInstituciones = async (req,res) =>{
     }
 };
 
-const getCSV = async (req,res) =>{
+const getInstiUser = async (req,res) =>{
     try {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
         const token = req.headers["x-access-token"];
@@ -144,5 +144,5 @@ export const methods = {
     getUsuario,
     addDatos,
     getInstituciones,
-    getCSV
+    getInstiUser
 }
