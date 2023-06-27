@@ -1,5 +1,5 @@
 import { getConnection } from "./../databases/database";
-import { cargaDatosCsv,mostrarInstituciones } from "../data/arri.connect.api.js";
+import { getApi} from "../data/arri.connect.api.js";
 import config from "./../config";
 import jwt from "jsonwebtoken"; 
 
@@ -87,23 +87,23 @@ const addDatos = async (req,res) =>{
         if(institucion==undefined){
             res.status(400).json({message:"Ingrese una institucion"})
         }else{
-            const datos = ["./csv/"+institucion+".csv",currentDate.getFullYear(),decoded.id]
+            const datos = [institucion,currentDate.getFullYear(),decoded.id]
             const connection = await getConnection();
-            const reviso = await connection.query("SELECT año_creacion FROM datos_institucion WHERE ubicacion_csv = $1 AND id_usuario = $2",[datos[0],datos[2]]);
+            const reviso = await connection.query("SELECT año_creacion FROM datos_institucion WHERE nombre_institucion = $1 AND id_usuario = $2",[datos[0],datos[2]]);
             if(reviso.rowCount==0){
-                const result = await connection.query("INSERT INTO datos_institucion (ubicacion_csv,año_creacion,id_usuario) VALUES ($1,$2,$3)",datos);
+                const result = await connection.query("INSERT INTO datos_institucion (nombre_institucion,año_creacion,id_usuario) VALUES ($1,$2,$3)",datos);
                 if(result.rowCount==0){
-                    res.json({message:"No se ha podido crear el CSV"});  
+                    res.json({message:"No se ha encontrado la informacion de la institucion"});  
                 }else{
-                    const info = await cargaDatosCsv(institucion);
+                    const info = await getApi(institucion);
                     res.status(200).json(info)
                 }
             }else{
                 const result = await connection.query("UPDATE datos_institucion SET año_creacion = $1",[datos[1]]);
                 if(result.rowCount==0){
-                    res.json({message:"No se ha actualizado el CSV"});  
+                    res.json({message:"No se ha actualizado la informacion de la institucion"});  
                 }else{
-                    const info = await cargaDatosCsv(institucion);
+                    const info = await getApi(institucion);
                     res.status(200).json(info)
                 }
             }
@@ -131,7 +131,7 @@ const getCSV = async (req,res) =>{
         const token = req.headers["x-access-token"];
         const decoded = jwt.verify(token,config.secretkey)
         const connection = await getConnection();
-        const result = await connection.query("SELECT ubicacion_csv FROM datos_institucion WHERE id_usuario = $1",[decoded.id]);
+        const result = await connection.query("SELECT nombre_institucion FROM datos_institucion WHERE id_usuario = $1",[decoded.id]);
         res.status(200).json(result.rows)
     } catch (error) {
         res.status(500).send(error.message);

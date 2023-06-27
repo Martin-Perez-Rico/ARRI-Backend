@@ -30,4 +30,4 @@ const cargaDatosCsv= async (institucion)=>{
     }
 }
 
-export { cargaDatosCsv};
+export { getApi };
