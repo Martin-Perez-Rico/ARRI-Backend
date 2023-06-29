@@ -10,5 +10,6 @@ app.post("/login",arriController.getUsuario);
 app.get("/instituciones",verifyToken,arriController.getInstituciones);
 app.post("/load",verifyToken,arriController.addDatos);
 app.post("/instiUser",verifyToken,arriController.getInstiUser);
+app.post("/estadisticas",verifyToken,arriController.getEstadisticas);
 
 export default app;

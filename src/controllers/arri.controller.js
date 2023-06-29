@@ -1,5 +1,5 @@
 import { getConnection } from "./../databases/database";
-import { getApi} from "../data/arri.connect.api.js";
+import { cargarEstadisticas,enviarEstadisticas } from "../data/arri.connect.api.js";
 import config from "./../config";
 import jwt from "jsonwebtoken"; 
 
@@ -95,7 +95,7 @@ const addDatos = async (req,res) =>{
                 if(result.rowCount==0){
                     res.json({message:"No se ha encontrado la informacion de la institucion"});  
                 }else{
-                    const info = await getApi(institucion);
+                    const info = await cargarEstadisticas(institucion);
                     res.status(200).json(info)
                 }
             }else{
@@ -103,7 +103,7 @@ const addDatos = async (req,res) =>{
                 if(result.rowCount==0){
                     res.json({message:"No se ha actualizado la informacion de la institucion"});  
                 }else{
-                    const info = await getApi(institucion);
+                    const info = await cargarEstadisticas(institucion);
                     res.status(200).json(info)
                 }
             }
@@ -138,11 +138,32 @@ const getInstiUser = async (req,res) =>{
     }
 };
 
+const getEstadisticas = async (req,res) =>{
+    try {
+        // Habilitar CORS
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        const {institucion} = req.body;
+        if(institucion==undefined){
+            res.status(400).json({message:"Ingrese una institucion"})
+        }else{
+            try {
+                const estadisticas = await enviarEstadisticas(institucion);
+                res.status(200).json(estadisticas);
+            } catch (error) {
+                res.status(500).send(error.message);
+            }
+        }
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
+
 export const methods = {
     getArri,
     addUsuario,
     getUsuario,
     addDatos,
     getInstituciones,
-    getInstiUser
+    getInstiUser,
+    getEstadisticas
 }
