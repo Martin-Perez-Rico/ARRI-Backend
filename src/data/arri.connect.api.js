@@ -55,14 +55,24 @@ const getNotasArea = async (jsonData) => {
     promedioNaturales/=estudiantes
     promedioLectura/=estudiantes
     promedioGlobal/=estudiantes
+    const sumaPromedios=promedioIngles+promedioMatematicas+promedioSociales+promedioNaturales+promedioLectura
 
     const datos = {
-        "Ingles":promedioIngles,
-        "Matematicas":promedioMatematicas,
-        "Sociales":promedioSociales,
-        "Naturales":promedioNaturales,
-        "Lectura":promedioLectura,
-        "Global":promedioGlobal
+        Promedios : {
+            "Ingles":promedioIngles,
+            "Matematicas":promedioMatematicas,
+            "Sociales":promedioSociales,
+            "Naturales":promedioNaturales,
+            "Lectura":promedioLectura,
+            "Global":promedioGlobal
+        },
+        Porcentaje : {
+            "Ingles":(promedioIngles*100)/sumaPromedios,
+            "Matematicas":(promedioMatematicas*100)/sumaPromedios,
+            "Sociales":(promedioSociales*100)/sumaPromedios,
+            "Naturales":(promedioNaturales*100)/sumaPromedios,
+            "Lectura":(promedioLectura*100)/sumaPromedios
+        }
     };
 
     return datos;
