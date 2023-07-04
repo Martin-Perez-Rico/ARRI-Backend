@@ -1,0 +1,20 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": null,
+      "Matematicas": null,
+      "Sociales": null,
+      "Naturales": null,
+      "Lectura": null,
+      "Global": null
+    },
+    "Porcentaje": {
+      "Ingles": null,
+      "Matematicas": null,
+      "Sociales": null,
+      "Naturales": null,
+      "Lectura": null
+    }
+  },
+  "PromedioPeriodos": []
+}

@@ -1,0 +1,93 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": 42.260162601626014,
+      "Matematicas": 43.00813008130081,
+      "Sociales": 44.073170731707314,
+      "Naturales": 42.951219512195124,
+      "Lectura": 44.609756097560975,
+      "Global": 217.6991869918699
+    },
+    "Porcentaje": {
+      "Ingles": 19.48348888639004,
+      "Matematicas": 19.828329397653583,
+      "Sociales": 20.319352299561448,
+      "Naturales": 19.80209153266614,
+      "Lectura": 20.566737883728774
+    }
+  },
+  "PromedioPeriodos": [
+    {
+      "Periodo": "20142",
+      "Ingles": 43.44444444444444,
+      "Matematicas": 41.77777777777778,
+      "Sociales": 43.55555555555556,
+      "Naturales": 43.22222222222222,
+      "Lectura": 41.44444444444444,
+      "Global": 212.77777777777777
+    },
+    {
+      "Periodo": "20151",
+      "Ingles": 43.68181818181818,
+      "Matematicas": 40.68181818181818,
+      "Sociales": 41.86363636363637,
+      "Naturales": 35.22727272727273,
+      "Lectura": 41.40909090909091,
+      "Global": 200.4090909090909
+    },
+    {
+      "Periodo": "20152",
+      "Ingles": 44.625,
+      "Matematicas": 47.375,
+      "Sociales": 44.875,
+      "Naturales": 44.375,
+      "Lectura": 43.375,
+      "Global": 224.875
+    },
+    {
+      "Periodo": "20162",
+      "Ingles": 45.89473684210526,
+      "Matematicas": 44.8421052631579,
+      "Sociales": 44.94736842105263,
+      "Naturales": 47.68421052631579,
+      "Lectura": 45.73684210526316,
+      "Global": 228.94736842105263
+    },
+    {
+      "Periodo": "20172",
+      "Ingles": 42.9375,
+      "Matematicas": 43,
+      "Sociales": 47.3125,
+      "Naturales": 45.1875,
+      "Lectura": 46.5,
+      "Global": 226.5
+    },
+    {
+      "Periodo": "20194",
+      "Ingles": 35.35294117647059,
+      "Matematicas": 39.94117647058823,
+      "Sociales": 41.76470588235294,
+      "Naturales": 41.588235294117645,
+      "Lectura": 43.76470588235294,
+      "Global": 206.23529411764707
+    },
+    {
+      "Periodo": "20201",
+      "Ingles": 42,
+      "Matematicas": 46.7,
+      "Sociales": 44.5,
+      "Naturales": 44.6,
+      "Lectura": 47,
+      "Global": 227.1
+    },
+    {
+      "Periodo": "20211",
+      "Ingles": 61.6,
+      "Matematicas": 55,
+      "Sociales": 54.6,
+      "Naturales": 55,
+      "Lectura": 57,
+      "Global": 279.4
+    }
+  ]
+}

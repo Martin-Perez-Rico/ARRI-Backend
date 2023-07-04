@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const getArri= async (req,res)=>{
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const connection = await getConnection();
         const result = await connection.query("SELECT id,correo,contraseña FROM usuarios");
         res.status(200).json(result)
@@ -19,7 +19,7 @@ const getArri= async (req,res)=>{
 const getUsuario= async (req,res)=>{
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const {correo,contraseña}=req.body;
         if(correo==undefined || contraseña==undefined){
             res.status(400).json({message:"No se realizo la busqueda"})
@@ -48,7 +48,7 @@ const getUsuario= async (req,res)=>{
 const addUsuario = async (req,res) =>{
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const {nombre,correo,contraseña}=req.body;
         if(nombre==undefined || correo==undefined || contraseña==undefined){
             res.status(400).json({message:"No se realizo la insersion"})
@@ -80,7 +80,7 @@ const addDatos = async (req,res) =>{
     const currentDate = new Date();
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const {institucion} = req.body;
         const token = req.headers["x-access-token"];
         const decoded = jwt.verify(token,config.secretkey)
@@ -116,7 +116,7 @@ const addDatos = async (req,res) =>{
 const getInstituciones = async (req,res) =>{
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const connection = await getConnection();
         const result = await connection.query("SELECT nombre FROM instituciones");
         res.status(200).json(result.rows)
@@ -127,7 +127,7 @@ const getInstituciones = async (req,res) =>{
 
 const getInstiUser = async (req,res) =>{
     try {
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const token = req.headers["x-access-token"];
         const decoded = jwt.verify(token,config.secretkey)
         const connection = await getConnection();
@@ -141,7 +141,7 @@ const getInstiUser = async (req,res) =>{
 const getEstadisticas = async (req,res) =>{
     try {
         // Habilitar CORS
-        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
         const {institucion} = req.body;
         if(institucion==undefined){
             res.status(400).json({message:"Ingrese una institucion"})

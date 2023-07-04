@@ -1,0 +1,75 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": 50.753246753246756,
+      "Matematicas": 48.23376623376623,
+      "Sociales": 49.63636363636363,
+      "Naturales": 49.506493506493506,
+      "Lectura": 53.883116883116884,
+      "Global": 251.75324675324674
+    },
+    "Porcentaje": {
+      "Ingles": 20.139139397062614,
+      "Matematicas": 19.13939706261273,
+      "Sociales": 19.695954650863175,
+      "Naturales": 19.64442154083999,
+      "Lectura": 21.381087348621488
+    }
+  },
+  "PromedioPeriodos": [
+    {
+      "Periodo": "20142",
+      "Ingles": 49.875,
+      "Matematicas": 49.875,
+      "Sociales": 51.375,
+      "Naturales": 49.25,
+      "Lectura": 49.875,
+      "Global": 250.5
+    },
+    {
+      "Periodo": "20152",
+      "Ingles": 49.4,
+      "Matematicas": 44.9,
+      "Sociales": 47.4,
+      "Naturales": 48.1,
+      "Lectura": 47.2,
+      "Global": 235.5
+    },
+    {
+      "Periodo": "20162",
+      "Ingles": 48.5,
+      "Matematicas": 46.25,
+      "Sociales": 47.5,
+      "Naturales": 50.75,
+      "Lectura": 46.25,
+      "Global": 239
+    },
+    {
+      "Periodo": "20172",
+      "Ingles": 52.77777777777778,
+      "Matematicas": 50.111111111111114,
+      "Sociales": 51.22222222222222,
+      "Naturales": 51.77777777777778,
+      "Lectura": 55.888888888888886,
+      "Global": 261.3333333333333
+    },
+    {
+      "Periodo": "20194",
+      "Ingles": 47.833333333333336,
+      "Matematicas": 46.5,
+      "Sociales": 47.5,
+      "Naturales": 48.333333333333336,
+      "Lectura": 53.416666666666664,
+      "Global": 244.25
+    },
+    {
+      "Periodo": "20224",
+      "Ingles": 54.45454545454545,
+      "Matematicas": 50.63636363636363,
+      "Sociales": 52.09090909090909,
+      "Naturales": 50.36363636363637,
+      "Lectura": 59.45454545454545,
+      "Global": 266.1818181818182
+    }
+  ]
+}

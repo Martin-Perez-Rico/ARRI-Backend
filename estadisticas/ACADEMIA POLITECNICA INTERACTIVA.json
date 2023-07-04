@@ -1,0 +1,84 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": 44.556756756756755,
+      "Matematicas": 44.11891891891892,
+      "Sociales": 43.87567567567567,
+      "Naturales": 44.21621621621622,
+      "Lectura": 47.372972972972974,
+      "Global": 224.38378378378377
+    },
+    "Porcentaje": {
+      "Ingles": 19.878936960401294,
+      "Matematicas": 19.68359619929581,
+      "Sociales": 19.575073554237207,
+      "Naturales": 19.72700525731925,
+      "Lectura": 21.135388028746444
+    }
+  },
+  "PromedioPeriodos": [
+    {
+      "Periodo": "20142",
+      "Ingles": 45.5,
+      "Matematicas": 46.4,
+      "Sociales": 48.2,
+      "Naturales": 46.7,
+      "Lectura": 48.95,
+      "Global": 237
+    },
+    {
+      "Periodo": "20152",
+      "Ingles": 47.714285714285715,
+      "Matematicas": 46.607142857142854,
+      "Sociales": 47.607142857142854,
+      "Naturales": 46.857142857142854,
+      "Lectura": 49.5,
+      "Global": 238.28571428571428
+    },
+    {
+      "Periodo": "20162",
+      "Ingles": 48.642857142857146,
+      "Matematicas": 46.42857142857143,
+      "Sociales": 46.75,
+      "Naturales": 48.857142857142854,
+      "Lectura": 50.75,
+      "Global": 241.39285714285714
+    },
+    {
+      "Periodo": "20172",
+      "Ingles": 45.4,
+      "Matematicas": 46.4,
+      "Sociales": 46.9,
+      "Naturales": 49.45,
+      "Lectura": 51.75,
+      "Global": 241.9
+    },
+    {
+      "Periodo": "20181",
+      "Ingles": 37,
+      "Matematicas": 45,
+      "Sociales": 53,
+      "Naturales": 47,
+      "Lectura": 47,
+      "Global": 236
+    },
+    {
+      "Periodo": "20194",
+      "Ingles": 41.166666666666664,
+      "Matematicas": 41.357142857142854,
+      "Sociales": 39.88095238095238,
+      "Naturales": 39.73809523809524,
+      "Lectura": 43.88095238095238,
+      "Global": 206.04761904761904
+    },
+    {
+      "Periodo": "20224",
+      "Ingles": 58,
+      "Matematicas": 45.5,
+      "Sociales": 42.5,
+      "Naturales": 48,
+      "Lectura": 52.5,
+      "Global": 239.5
+    }
+  ]
+}

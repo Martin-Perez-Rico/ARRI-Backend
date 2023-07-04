@@ -1,0 +1,39 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": 49.833333333333336,
+      "Matematicas": 45.666666666666664,
+      "Sociales": 45,
+      "Naturales": 40.333333333333336,
+      "Lectura": 50.833333333333336,
+      "Global": 228.83333333333334
+    },
+    "Porcentaje": {
+      "Ingles": 21.510791366906474,
+      "Matematicas": 19.712230215827333,
+      "Sociales": 19.424460431654676,
+      "Naturales": 17.41007194244604,
+      "Lectura": 21.942446043165468
+    }
+  },
+  "PromedioPeriodos": [
+    {
+      "Periodo": "20194",
+      "Ingles": 43,
+      "Matematicas": 44,
+      "Sociales": 49,
+      "Naturales": 46,
+      "Lectura": 46,
+      "Global": 230
+    },
+    {
+      "Periodo": "20224",
+      "Ingles": 51.2,
+      "Matematicas": 46,
+      "Sociales": 44.2,
+      "Naturales": 39.2,
+      "Lectura": 51.8,
+      "Global": 228.6
+    }
+  ]
+}

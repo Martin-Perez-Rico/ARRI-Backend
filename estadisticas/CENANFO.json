@@ -1,0 +1,84 @@
+{
+  "PromedioAreas": {
+    "Promedios": {
+      "Ingles": 45.65686274509804,
+      "Matematicas": 47.14705882352941,
+      "Sociales": 46.911764705882355,
+      "Naturales": 45.88235294117647,
+      "Lectura": 49.31372549019608,
+      "Global": 235.94117647058823
+    },
+    "Porcentaje": {
+      "Ingles": 19.435749760026713,
+      "Matematicas": 20.07011393514461,
+      "Sociales": 19.96995117065231,
+      "Naturales": 19.531739075998498,
+      "Lectura": 20.992446058177872
+    }
+  },
+  "PromedioPeriodos": [
+    {
+      "Periodo": "20142",
+      "Ingles": 49.75,
+      "Matematicas": 46.5,
+      "Sociales": 45.75,
+      "Naturales": 44.75,
+      "Lectura": 49.25,
+      "Global": 234
+    },
+    {
+      "Periodo": "20151",
+      "Ingles": 43,
+      "Matematicas": 44.75,
+      "Sociales": 45.2,
+      "Naturales": 44.45,
+      "Lectura": 46.5,
+      "Global": 225.3
+    },
+    {
+      "Periodo": "20152",
+      "Ingles": 49.111111111111114,
+      "Matematicas": 44.111111111111114,
+      "Sociales": 50.333333333333336,
+      "Naturales": 46.333333333333336,
+      "Lectura": 46.666666666666664,
+      "Global": 235.33333333333334
+    },
+    {
+      "Periodo": "20162",
+      "Ingles": 47.07142857142857,
+      "Matematicas": 44.07142857142857,
+      "Sociales": 42.57142857142857,
+      "Naturales": 47.285714285714285,
+      "Lectura": 46.785714285714285,
+      "Global": 226.57142857142858
+    },
+    {
+      "Periodo": "20172",
+      "Ingles": 45.5,
+      "Matematicas": 48.166666666666664,
+      "Sociales": 49.5,
+      "Naturales": 46.75,
+      "Lectura": 51.083333333333336,
+      "Global": 243.25
+    },
+    {
+      "Periodo": "20181",
+      "Ingles": 55,
+      "Matematicas": 64,
+      "Sociales": 59,
+      "Naturales": 68,
+      "Lectura": 57,
+      "Global": 307
+    },
+    {
+      "Periodo": "20194",
+      "Ingles": 45.142857142857146,
+      "Matematicas": 49.333333333333336,
+      "Sociales": 47.523809523809526,
+      "Naturales": 45.333333333333336,
+      "Lectura": 51.38095238095238,
+      "Global": 240.66666666666666
+    }
+  ]
+}
